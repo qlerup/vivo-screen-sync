@@ -1,0 +1,32 @@
+Vivo Screen Sync - Proprietary Source-Available License
+Copyright (c) 2026 qlerup. All rights reserved.
+
+This notice applies to original Vivo Screen Sync code and documentation owned by
+qlerup. The source is published for inspection; it is not open source.
+
+You may download, install and run unmodified official binary releases of
+Vivo Screen Sync on devices you own or are authorized to manage.
+
+No permission is granted to modify, create derivative works of, redistribute,
+sublicense, sell, or incorporate the original Studio source or binaries into
+another product without prior written permission from the copyright holder.
+All rights not expressly granted are reserved. Rights required by applicable
+law and GitHub's applicable terms for viewing and forking public repositories
+are not restricted by this notice.
+
+Independent apps and plugins may be developed against separately published
+extension interfaces without copying or modifying Studio code. They retain
+their own licenses. Store acceptance and distribution require the author's
+permission under the store's separate submission policy. Store submission does
+not grant rights to modify the Studio application.
+
+Third-party software, dependencies, bundled runtimes, public certificates and
+other third-party materials are excluded from these restrictions and remain
+subject to their respective licenses and notices. In particular, see
+the relevant Android SDK license notices.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, TO THE EXTENT
+PERMITTED BY APPLICABLE LAW. THE COPYRIGHT HOLDER IS NOT LIABLE FOR DAMAGES
+ARISING FROM ITS USE, TO THE EXTENT PERMITTED BY APPLICABLE LAW.
+
+Requests for other permissions: contact qlerup through GitHub.
