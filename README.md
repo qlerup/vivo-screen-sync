@@ -1,5 +1,18 @@
 # Vivo Screen Sync
 
+## 1.0.1 icon update
+
+The Store and Android launcher icons now share the Studio lavender palette and show
+CoreBAR, two VivoCube displays and synchronization arrows. The PNG and Android
+vector are generated from the same geometry by `make_icon.py` (requires Pillow).
+Run `python make_icon.py` to reproduce both assets.
+
+This release changes only artwork and the version metadata. App behavior,
+permissions, settings, package identity and signing identity are unchanged.
+Build, signature inspection and timing tests were checked. This artwork update
+has not been installed on physical Core hardware.
+
+
 Keep VivoCube screens in sync with the CoreBAR screen. This is a standalone
 **Core app (`corebar-app`)**, not a widget or a preset. It runs on Core without
 Studio remaining open after setup.
