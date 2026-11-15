@@ -88,3 +88,23 @@ states do not change Vivo state. An unavailable module can delay other modules;
 the foreground notification reports retries. Long-running stability is not yet
 established. Target Android API 28, minimum 26; no claim of support for newer Core
 firmware beyond the declared versions.
+
+## Studio settings API 1 (1.1.0)
+
+Requires Studio 0.45.0+ for the shared settings interface. The root
+`studio-settings.json` equals the descriptor embedded at assets/studio-settings.json
+and the Store manifest settings property. Studio reads actual `enabled` and
+`wakeDelayMs` values through the protected StudioSettingsReceiver, and waits for
+durable read/apply confirmation. Existing sync preference names and unrelated
+settings are preserved. Root-enabled ADB and the existing approved Studio bridge
+credential provisioning are still required; the settings descriptor does not
+grant access credentials. Legacy in-app controls and previous Studio setup remain
+available.
+
+Integration requirements and reusable helper example:
+https://github.com/qlerup/ultrabar-store/blob/main/APP-SETTINGS.md .
+The shared transport was tested on physical CB01/LineOS 1.0.9 with a separate
+example app: six field types, read/apply confirmation and persistence after
+force-stop. This release APK passes static metadata/receiver/schema/signature
+inspection; upgrading the user's installed Screen Sync was not performed during
+submission preparation. Test the 1.0.1 -> 1.1.0 upgrade on hardware before merging.

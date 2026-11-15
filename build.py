@@ -12,7 +12,9 @@ run('java','-cp',BT/'lib/d8.jar','com.android.tools.r8.D8','--lib',JAR,'--min-ap
 suffix='.exe' if os.name=='nt' else ''
 apk=BUILD/'unsigned.apk'
 run(BT/('aapt'+suffix),'package','-f','-M',ROOT/'AndroidManifest.xml','-I',JAR,'-S',ROOT/'res','-F',apk)
-with zipfile.ZipFile(apk,'a',compression=zipfile.ZIP_DEFLATED) as z:z.write(BUILD/'classes.dex','classes.dex')
+with zipfile.ZipFile(apk,'a',compression=zipfile.ZIP_DEFLATED) as z:
+ z.write(BUILD/'classes.dex','classes.dex')
+ z.write(ROOT/'studio-settings.json','assets/studio-settings.json')
 run(BT/('zipalign'+suffix),'-f','4',apk,BUILD/'aligned.apk')
 run('java','-jar',BT/'lib/apksigner.jar','sign','--ks',os.environ['SCREEN_SYNC_KEYSTORE'],'--ks-pass','env:SCREEN_SYNC_KEY_PASSWORD','--out',ROOT/'app.apk',BUILD/'aligned.apk')
 run('java','-jar',BT/'lib/apksigner.jar','verify','--verbose',ROOT/'app.apk')

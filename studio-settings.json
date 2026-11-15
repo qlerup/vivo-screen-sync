@@ -1,0 +1,7 @@
+{
+  "api": 1,
+  "fields": [
+    {"key":"enabled","label":"Follow Core screen power","help":"Turn VivoCube screens off and on with Core. Turn this off to keep them on.","type":"boolean","default":true},
+    {"key":"wakeDelayMs","label":"Wake delay (ms)","help":"Delay after Core wakes before turning on VivoCube screens.","type":"integer","default":1000,"min":0,"max":3000,"step":250}
+  ]
+}
