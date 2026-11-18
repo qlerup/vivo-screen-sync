@@ -1,29 +1,22 @@
 # Vivo Screen Sync
 
-## 1.0.1 icon update
-
-The Store and Android launcher icons now share the Studio lavender palette and show
-CoreBAR, two VivoCube displays and synchronization arrows. The PNG and Android
-vector are generated from the same geometry by `make_icon.py` (requires Pillow).
-Run `python make_icon.py` to reproduce both assets.
-
-This release changes only artwork and the version metadata. App behavior,
-permissions, settings, package identity and signing identity are unchanged.
-Build, signature inspection and timing tests were checked. This artwork update
-has not been installed on physical Core hardware.
-
-
 Keep VivoCube screens in sync with the CoreBAR screen. This is a standalone
 **Core app (`corebar-app`)**, not a widget or a preset. It runs on Core without
 Studio remaining open after setup.
 
 ## Use
 
-Install from UltraBar Studio 0.28.0 or newer with Core and the intended VivoCubes
-connected. Studio discovers online VivoCubes, verifies the APK and configures
-private app storage. Open Vivo Screen Sync on Core and choose **Follow Core**.
+Install **Vivo Screen Sync 1.1.0** from App & Plugin Store with Studio 0.45.0
+or newer. Keep Core and the intended VivoCubes connected.
+
+1. Open **Design & actions** and drag Vivo Screen Sync into **Background apps**.
+2. Select it and choose **Follow Core** or **Always on**. Set the wake delay
+   from 0 to 3000 ms.
+3. Choose **Deploy to Core**. Studio configures the online VivoCubes and applies
+   the settings. The service runs on Core after setup.
+
 **Always on** restores the configured screens and stops synchronization after
-successful readback. Wake delay is adjustable from 0–3000 ms.
+successful readback. You can also change these settings on Core.
 
 Setup requires root-enabled WiFi ADB, CB01/ARM32, LineOS 1.0.8 or 1.0.9, and the
 existing approved `ultrabarx-profile-inspection` bridge credential used by Studio.
@@ -31,7 +24,7 @@ There is no automatic creation of that credential. Studio reports a setup error
 if it is unavailable. Newly connected/replaced cubes require repeating Store
 installation to refresh the configured set. Only online VivoCubes are included.
 
-First install leaves synchronization off until you choose Follow Core. Updates
+Choose **Follow Core** to activate synchronization. Updates
 keep the same Android package and signing identity, preserving enable state and
 wake delay. The old private 0.4-test build has the same identity; it can be updated
 without uninstalling it. Never uninstall first merely to work around an update
@@ -79,15 +72,14 @@ hardware testing remain required.
 
 ## Status and limitations
 
-The earlier private prototype was tested with two VivoCubes, screen sleep/wake
-and reboot. The packaged 1.0.0 release adds generic Studio provisioning and removes
-embedded device-specific setup. Compilation, signature inspection and host timing
-tests are checked; this new installation path still requires owner testing on Core
-before Store approval. Screens may wake at slightly different times. Unknown/AOD
-states do not change Vivo state. An unavailable module can delay other modules;
-the foreground notification reports retries. Long-running stability is not yet
-established. Target Android API 28, minimum 26; no claim of support for newer Core
-firmware beyond the declared versions.
+The physical test with two VivoCubes covered sleep, wake and reboot. Studio
+setup on CB01 was also verified with saved Follow Core settings and Android
+reported the foreground service running. The 1.1.0 APK passed static checks.
+A physical upgrade of an existing 1.0.1 installation remains unverified.
+
+Screens may wake at slightly different times. Unknown or AOD states leave the
+Vivo displays as they are. An unavailable module can delay other modules, and
+the foreground notification reports retries. Target Android API 28, minimum 26.
 
 ## Studio settings API 1 (1.1.0)
 
@@ -107,4 +99,11 @@ The shared transport was tested on physical CB01/LineOS 1.0.9 with a separate
 example app: six field types, read/apply confirmation and persistence after
 force-stop. This release APK passes static metadata/receiver/schema/signature
 inspection; upgrading the user's installed Screen Sync was not performed during
-submission preparation. Test the 1.0.1 -> 1.1.0 upgrade on hardware before merging.
+submission preparation.
+
+## Artwork
+
+The Store and Android launcher icons now share the Studio lavender palette and show
+CoreBAR, two VivoCube displays and synchronization arrows. The PNG and Android
+vector are generated from the same geometry by `make_icon.py` (requires Pillow).
+Run `python make_icon.py` to reproduce both assets.
